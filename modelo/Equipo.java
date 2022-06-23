@@ -5,11 +5,13 @@ import javax.swing.JOptionPane;
 public class Equipo
 {
     //Atributos
-    public String nombreEquipo;
-    public int numJugadores;
-    public Jugador[] jugadores;
-    public int edadJugador;
-    public int promedioEdades;
+    private String nombreEquipo;
+    private int numJugadores;
+    private Jugador[] jugadores;
+    private int edadJugador;
+    private int promedioEdades;
+    private int maxGoles;
+    private int nombreGoleador;
 
     //Metodos
     public Equipo(String nom, int n)
@@ -42,6 +44,11 @@ public class Equipo
         for(int i=0; i<numJugadores; i++)
         {
             totalGolesEquipo = totalGolesEquipo + jugadores[i].getGoles();
+            if(jugadores[i].getGoles() > maxGoles)
+            {
+                maxGoles = jugadores[i].getGoles();
+                nombreGoleador = jugadores[i].getNombre();
+            }
         }
         return totalGolesEquipo;
     }
@@ -51,4 +58,13 @@ public class Equipo
         int totalgolesjugador = 0;
         return totalgolesjugador;
     }
+
+    public int calcularPromedioEdades()
+    {
+        for(int i=0; i<numJugadores; i++)
+        {     
+            promedioEdades += jugadores[i].getEdad();
+        }
+        promedioEdades= promedioEdades/numJugadores;
+        return promedioEdades;
 }

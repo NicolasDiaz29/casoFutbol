@@ -3,8 +3,9 @@ package modelo;
 public class Jugador
 {
     //Atributos
-    public String nombre;
-    public int goles;
+    private String nombre;
+    private int goles;
+    private int edad;
 
     //Métodos
     public Jugador()
@@ -17,6 +18,11 @@ public class Jugador
     {
         nombre = n;
         goles = g;
+    }
+
+    public String getNombre()
+    {
+        return nombre;
     }
     
     public void setGoles(int g)
@@ -34,9 +40,9 @@ public class Jugador
         nombre = n;
     }
 
-    public String getNombre()
+    public int getEdad()
     {
-        return nombre;
+        return edad;
     }
 
     public String toString()
